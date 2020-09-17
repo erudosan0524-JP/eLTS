@@ -10,6 +10,9 @@ public class Main extends JavaPlugin {
 
 	public CommandManager commandManager;
 
+	private GameState state;
+	private GameMode mode;
+
 	@Override
 	public void onDisable() {
 		// TODO 自動生成されたメソッド・スタブ
@@ -32,6 +35,24 @@ public class Main extends JavaPlugin {
 	private static void setInstance(Main instance) {
 		Main.instance = instance;
 	}
+
+	public GameState getState() {
+		return state;
+	}
+
+	public void setState(GameState state) {
+		this.state = state;
+	}
+
+	public GameMode getMode() {
+		return mode;
+	}
+
+	public void setMode(GameMode mode) {
+		this.mode = mode;
+	}
+
+
 
 
 }
