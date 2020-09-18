@@ -30,20 +30,17 @@ public class Start extends SubCommand {
 
 	@Override
 	public String name() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return "start";
 	}
 
 	@Override
 	public String info() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return "";
 	}
 
 	@Override
 	public String[] aliases() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new String[0];
 	}
 
 }

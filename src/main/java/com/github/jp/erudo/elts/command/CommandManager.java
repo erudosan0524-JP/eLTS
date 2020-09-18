@@ -15,6 +15,7 @@ import com.github.jp.erudo.elts.Main;
 import com.github.jp.erudo.elts.command.commands.SubCommand;
 import com.github.jp.erudo.elts.command.commands.subcommands.GameMode;
 import com.github.jp.erudo.elts.command.commands.subcommands.Help;
+import com.github.jp.erudo.elts.command.commands.subcommands.Start;
 import com.github.jp.erudo.elts.utils.MessageManager;
 
 public class CommandManager implements CommandExecutor {
@@ -33,6 +34,7 @@ public class CommandManager implements CommandExecutor {
 
 		this.commands.add(new Help());
 		this.commands.add(new GameMode());
+		this.commands.add(new Start());
 	}
 
 
