@@ -1,4 +1,4 @@
-package com.github.jp.erudo.elts.utils;
+package com.github.jp.erudo.elts.config;
 
 import java.io.File;
 import java.io.IOException;

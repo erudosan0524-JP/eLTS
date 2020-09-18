@@ -3,6 +3,7 @@ package com.github.jp.erudo.elts;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.github.jp.erudo.elts.command.CommandManager;
+import com.github.jp.erudo.elts.config.CustomConfig;
 
 public class Main extends JavaPlugin {
 
@@ -12,6 +13,9 @@ public class Main extends JavaPlugin {
 
 	private GameState state;
 	private GameMode mode;
+
+	private CustomConfig config;
+	private CustomConfig teamsConf;
 
 	@Override
 	public void onDisable() {
@@ -23,9 +27,16 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		setInstance(this);
 
+		//Command
 		commandManager = new CommandManager();
-
 		commandManager.setup();
+
+		//Config
+		config = new CustomConfig(this);
+		teamsConf = new CustomConfig(this, "teams.yml");
+		config.saveDefaultConfig();
+		teamsConf.saveDefaultConfig();
+
 	}
 
 	public static Main getInstance() {
