@@ -5,18 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.github.jp.erudo.elts.Main;
-
 public class TeamConfig {
 
-	private Main plugin;
 	private CustomConfig config;
 
 	private Set<String> teams;
 	private HashMap<String, List<String>> teamMembers;
 
-	public TeamConfig(Main plugin, CustomConfig config) {
-		this.plugin = plugin;
+	public TeamConfig(CustomConfig config) {
 		this.config = config;
 
 		this.teams = new HashSet<String>();

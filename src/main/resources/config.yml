@@ -1,2 +1,3 @@
 defaultGameMode: "solo"
 defaultInterval: 100
+defaultCount: 10

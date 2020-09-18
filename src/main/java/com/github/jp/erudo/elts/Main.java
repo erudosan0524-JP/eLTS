@@ -3,18 +3,23 @@ package com.github.jp.erudo.elts;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.github.jp.erudo.elts.command.CommandManager;
+import com.github.jp.erudo.elts.config.Config;
 import com.github.jp.erudo.elts.config.CustomConfig;
+import com.github.jp.erudo.elts.config.TeamConfig;
+import com.github.jp.erudo.elts.listener.JoinLeaveListener;
 
 public class Main extends JavaPlugin {
 
 	private static Main instance;
+	private static Config config;
+	private static TeamConfig teamConfig;
 
 	public CommandManager commandManager;
 
 	private GameState state;
 	private GameMode mode;
 
-	private CustomConfig config;
+	private CustomConfig Customconfig;
 	private CustomConfig teamsConf;
 
 	@Override
@@ -32,10 +37,16 @@ public class Main extends JavaPlugin {
 		commandManager.setup();
 
 		//Config
-		config = new CustomConfig(this);
+		Customconfig = new CustomConfig(this);
 		teamsConf = new CustomConfig(this, "teams.yml");
-		config.saveDefaultConfig();
+		Customconfig.saveDefaultConfig();
 		teamsConf.saveDefaultConfig();
+
+		config = new Config(Customconfig);
+		teamConfig = new TeamConfig(teamsConf);
+
+		//Listener
+		new JoinLeaveListener(this);
 
 	}
 
@@ -63,7 +74,11 @@ public class Main extends JavaPlugin {
 		this.mode = mode;
 	}
 
+	public static Config getMyConfig() {
+		return config;
+	}
 
-
-
+	public static TeamConfig getTeamConfig() {
+		return teamConfig;
+	}
 }

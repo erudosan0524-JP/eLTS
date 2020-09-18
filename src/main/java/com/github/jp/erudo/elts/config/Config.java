@@ -1,17 +1,15 @@
 package com.github.jp.erudo.elts.config;
 
-import com.github.jp.erudo.elts.Main;
-
 public class Config {
 
-	private Main plugin;
+
 	private CustomConfig config;
 
 	private String defaultGameMode;
 	private int defaultInterval;
+	private int defaultCount;
 
-	public Config(Main plugin, CustomConfig config) {
-		this.plugin = plugin;
+	public Config(CustomConfig config) {
 		this.config = config;
 
 		load();
@@ -24,6 +22,7 @@ public class Config {
 
 		defaultGameMode = config.getConfig().getString("defaultGameMode");
 		defaultInterval = config.getConfig().getInt("defaultInterval");
+		defaultCount = config.getConfig().getInt("defaultCount");
 
 	}
 
@@ -43,6 +42,12 @@ public class Config {
 		this.defaultInterval = defaultInterval;
 	}
 
+	public int getDefaultCount() {
+		return defaultCount;
+	}
 
+	public void setDefaultCount(int defaultCount) {
+		this.defaultCount = defaultCount;
+	}
 
 }
