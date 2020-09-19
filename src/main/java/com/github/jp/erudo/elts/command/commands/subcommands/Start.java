@@ -33,7 +33,6 @@ public class Start extends SubCommand {
 		descs.add(ChatColor.GRAY + "" + ChatColor.ITALIC + "最後まで生き残れ...");
 
 		List<Enchantment> enchant = new ArrayList<Enchantment>();
-		enchant.add(Enchantment.ARROW_INFINITE);
 		enchant.add(Enchantment.ARROW_DAMAGE);
 
 
