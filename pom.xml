@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jp.erudo.elts</groupId>
 	<artifactId>eLTS</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
-	<name>erudo's Last Team Standing</name>
+	<version>0.0.8-SNAPSHOT</version>
+	<name>eLTS</name>
 	<description>弓を使ったバトルロイヤルゲームです。</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

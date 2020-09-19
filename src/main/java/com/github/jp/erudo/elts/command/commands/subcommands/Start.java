@@ -17,14 +17,13 @@ public class Start extends SubCommand {
 
 	private BukkitTask task;
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onCommand(Player player, String[] args) {
 		MessageManager.sendTitleAll(ChatColor.BOLD + "Last Team Standing", 40, 20, 40, EnumTitleAction.TITLE);
 		MessageManager.sendTitleAll(ChatColor.GRAY + "最後まで生き残れ...", 40, 20, 40, EnumTitleAction.SUBTITLE);
 
 		Counter counter = new Counter(Main.getMyConfig().getDefaultCount());
-		task = plugin.getServer().getScheduler().runTaskTimer(plugin, counter, 0, 20L);
+		counter.runTaskTimer(plugin, 0, 20L);
 		counter.setTask(task);
 	}
 
