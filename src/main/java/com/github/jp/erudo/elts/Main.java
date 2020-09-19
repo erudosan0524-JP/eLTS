@@ -6,6 +6,7 @@ import com.github.jp.erudo.elts.command.CommandManager;
 import com.github.jp.erudo.elts.config.Config;
 import com.github.jp.erudo.elts.config.CustomConfig;
 import com.github.jp.erudo.elts.config.TeamConfig;
+import com.github.jp.erudo.elts.listener.EntityDamageListener;
 import com.github.jp.erudo.elts.listener.JoinLeaveListener;
 
 public class Main extends JavaPlugin {
@@ -47,6 +48,7 @@ public class Main extends JavaPlugin {
 
 		//Listener
 		new JoinLeaveListener(this);
+		new EntityDamageListener(this);
 
 	}
 

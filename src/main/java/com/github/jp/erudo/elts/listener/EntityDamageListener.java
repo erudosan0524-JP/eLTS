@@ -12,7 +12,7 @@ import com.github.jp.erudo.elts.Main;
 
 public class EntityDamageListener implements Listener {
 
-	private Main instance = Main.getInstance();
+	private final Main instance = Main.getInstance();
 
 	public EntityDamageListener(Main plugin) {
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);

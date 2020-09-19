@@ -9,6 +9,7 @@ public class Game extends BukkitRunnable {
 
 	private Main plugin = Main.getInstance();
 
+	//TODO: がんばる
 	@Override
 	public void run() {
 		if(plugin.getState() != GameState.GAMING) {
