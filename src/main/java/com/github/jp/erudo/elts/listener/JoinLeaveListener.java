@@ -8,7 +8,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.github.jp.erudo.elts.Main;
-import com.github.jp.erudo.elts.utils.MessageManager;
 
 public class JoinLeaveListener implements Listener {
 
@@ -21,13 +20,13 @@ public class JoinLeaveListener implements Listener {
 	public void onJoin(PlayerJoinEvent e) {
 		Player player = e.getPlayer();
 
-		MessageManager.sendAll(ChatColor.BOLD + player.getName() + "がログインしました");
+		e.setJoinMessage(ChatColor.BOLD + player.getName() + "がログインしました");
 	}
 
 	@EventHandler
 	public void onLeave(PlayerQuitEvent e) {
 		Player player = e.getPlayer();
 
-		MessageManager.sendAll(ChatColor.BOLD + player.getName() + "がログアウトしました");
+		e.setQuitMessage(ChatColor.BOLD + player.getName() + "がログアウトしました");
 	}
 }

@@ -9,6 +9,7 @@ import com.github.jp.erudo.elts.GameState;
 import com.github.jp.erudo.elts.Main;
 import com.github.jp.erudo.elts.utils.MessageManager;
 
+import net.md_5.bungee.api.ChatColor;
 import net.minecraft.server.v1_16_R2.PacketPlayOutTitle.EnumTitleAction;
 
 public class Counter extends BukkitRunnable {
@@ -24,22 +25,23 @@ public class Counter extends BukkitRunnable {
 
 	@Override
 	public void run() {
-		if(plugin.getState() != GameState.COUNTING) {
+		if (plugin.getState() != GameState.COUNTING) {
 			return;
 		}
 
-		if(count <= 0) {
+		if (count <= 0) {
+			MessageManager.sendTitleAll(ChatColor.BOLD + "START!", 20, 20, 20, EnumTitleAction.TITLE);
 			plugin.setState(GameState.GAMING);
 			count = 0;
 			plugin.getServer().getScheduler().cancelTask(task.getTaskId());
+
+		} else if (count > 0 && count <= 10) {
+			Bukkit.getServer().getOnlinePlayers()
+					.forEach(player -> player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_PLACE, 0.5F, 1));
+			MessageManager.sendTitleAll(String.valueOf(count), 20, 20, 20, EnumTitleAction.TITLE);
+			MessageManager.sendTitleAll("", 40, 20, 40, EnumTitleAction.SUBTITLE);
 		}
 
-		if(count > 0 && count <= 5) {
-			Bukkit.getServer().getOnlinePlayers().forEach(player -> player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_HIT, 0.5F, 1));
-		}
-
-
-		MessageManager.sendTitleAll(String.valueOf(count), 20, 20, 20, EnumTitleAction.TITLE);
 		count--;
 
 	}

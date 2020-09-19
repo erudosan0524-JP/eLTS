@@ -53,6 +53,8 @@ public class CommandManager implements CommandExecutor {
 				return true;
 			}
 
+			//<command> args[0] args[1] args[2]...
+
 			SubCommand target = this.get(args[0]);
 
 			if(Objects.isNull(target)) {
@@ -61,6 +63,8 @@ public class CommandManager implements CommandExecutor {
 			}
 
 			ArrayList<String> arrayList = new ArrayList<String>();
+
+			//<command> <subcommand> args[0] args[1]...
 
 			arrayList.addAll(Arrays.asList(args));
 			arrayList.remove(0); //index 0 はサブコマンド本体

@@ -9,7 +9,6 @@ public class Help extends SubCommand {
 	@Override
 	public void onCommand(Player player, String[] args) {
 		player.sendMessage("This help command is cool");
-
 	}
 
 	@Override
