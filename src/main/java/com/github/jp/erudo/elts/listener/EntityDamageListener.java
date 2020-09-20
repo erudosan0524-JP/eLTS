@@ -5,6 +5,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.util.Vector;
 
 import com.github.jp.erudo.elts.GameState;
@@ -43,9 +45,19 @@ public class EntityDamageListener implements Listener {
 
 			player.setVelocity(boost);
 		}
+	}
 
+	@EventHandler
+	public void onDamage(EntityDamageEvent e) {
+		//落下ダメージ無効化処理
 
+		if(!(e.getEntity() instanceof Player)) {
+			return;
+		}
 
+		if(e.getCause() == DamageCause.FALL) {
+			e.setCancelled(true);
+		}
 	}
 
 }

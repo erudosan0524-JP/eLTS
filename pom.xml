@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jp.erudo.elts</groupId>
 	<artifactId>eLTS</artifactId>
-	<version>0.1.3-SNAPSHOT</version>
+	<version>0.1.4-SNAPSHOT</version>
 	<name>eLTS</name>
 	<description>弓を使ったバトルロイヤルゲームです。</description>
 	<properties>
