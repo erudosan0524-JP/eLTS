@@ -37,7 +37,6 @@ public class ArrowListener implements Listener {
 
 		//プレイヤーのEXPを0に
 		player.setExp(0);
-		player.setTotalExperience(interval);
 
 		//Interval Runnableの起動
 		Interval intervalRun = new Interval(interval,player);
@@ -59,9 +58,11 @@ public class ArrowListener implements Listener {
 			return;
 		}
 
+		Arrow arrow = (Arrow) e.getEntity();
 		Block block = e.getHitBlock();
 		Location loc = block.getLocation();
 
+		arrow.remove();
 		loc.getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, loc, 1);
 	}
 

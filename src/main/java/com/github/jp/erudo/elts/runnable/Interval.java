@@ -14,15 +14,21 @@ public class Interval extends BukkitRunnable{
 
 	private BukkitTask task;
 	private int interval;
-	private int exp;
+	private float n;
+	private float exp;
 	private Player player;
+
+	private final int total;
 
 	public Interval(int interval, Player player) {
 		this.interval = interval;
 		this.player = player;
+		this.total = interval;
 		this.exp = 0;
+		this.n = 0;
 	}
 
+	//1s1回
 	@Override
 	public void run() {
 		if(interval <= 0) {
@@ -30,10 +36,11 @@ public class Interval extends BukkitRunnable{
 			interval = 0;
 			plugin.getServer().getScheduler().cancelTask(task.getTaskId());
 		}
-
-		interval--;
-		exp++;
+		//interval秒たつまでにexpの値を0から1に変化させたい
+		exp = n / total;
 		player.setExp(exp);
+		interval--;
+		n++;
 	}
 
 	public void setTask(BukkitTask task) {
