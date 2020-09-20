@@ -49,6 +49,10 @@ public class TeamConfig {
 		this.teamMembers.put(key,value);
 	}
 
+	public void reload() {
+		config.reloadConfig();
+	}
+
 
 
 }

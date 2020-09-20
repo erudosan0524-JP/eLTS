@@ -50,4 +50,8 @@ public class Config {
 		this.defaultCount = defaultCount;
 	}
 
+	public void reload() {
+		config.reloadConfig();
+	}
+
 }
