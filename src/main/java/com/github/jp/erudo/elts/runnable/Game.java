@@ -9,7 +9,6 @@ public class Game extends BukkitRunnable {
 
 	private Main plugin = Main.getInstance();
 
-	//TODO: がんばる
 	@Override
 	public void run() {
 		if(plugin.getState() != GameState.GAMING) {
@@ -18,6 +17,21 @@ public class Game extends BukkitRunnable {
 
 
 
+
+		switch(plugin.getMode()) {
+
+		case SOLO:
+
+			break;
+		case DUO:
+
+
+			break;
+		case TRIO:
+
+
+			break;
+		}
 
 	}
 
