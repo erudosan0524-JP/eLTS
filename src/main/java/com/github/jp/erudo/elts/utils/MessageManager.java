@@ -1,6 +1,7 @@
 package com.github.jp.erudo.elts.utils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_16_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
@@ -32,7 +33,7 @@ public class MessageManager {
 
 	public static void sendTitle(Player player, String message, int fadein, int showtime, int fadeout, EnumTitleAction type) {
 		PacketPlayOutTitle title = new PacketPlayOutTitle(type,
-				ChatSerializer.a("{\"text\":\"" + message + "\"}"), fadein , showtime, fadeout);
+				ChatSerializer.a("{\"text\":\"" + message + "\"}"), fadein, showtime, fadeout);
 
 		((CraftPlayer) player).getHandle().playerConnection.sendPacket(title);
 	}
@@ -42,5 +43,13 @@ public class MessageManager {
 				ChatSerializer.a("{\"text\":\"" + message + "\"}"), fadein, showtime, fadeout);
 
 		Bukkit.getServer().getOnlinePlayers().forEach(player -> ((CraftPlayer) player).getHandle().playerConnection.sendPacket(title));
+	}
+
+	public static String getCoordinate(Location loc) {
+		String[] coordinates = {Double.toString(loc.getX()), Double.toString(loc.getY()), Double.toString(loc.getZ())};
+
+		String result = String.join(",",coordinates);
+
+		return result;
 	}
 }

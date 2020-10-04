@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
 
+import com.github.jp.erudo.elts.command.commands.subcommands.*;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,10 +14,6 @@ import org.bukkit.entity.Player;
 
 import com.github.jp.erudo.elts.Main;
 import com.github.jp.erudo.elts.command.commands.SubCommand;
-import com.github.jp.erudo.elts.command.commands.subcommands.GameMode;
-import com.github.jp.erudo.elts.command.commands.subcommands.Help;
-import com.github.jp.erudo.elts.command.commands.subcommands.Relaod;
-import com.github.jp.erudo.elts.command.commands.subcommands.Start;
 import com.github.jp.erudo.elts.utils.MessageManager;
 
 public class CommandManager implements CommandExecutor {
@@ -37,6 +34,7 @@ public class CommandManager implements CommandExecutor {
 		this.commands.add(new GameMode());
 		this.commands.add(new Start());
 		this.commands.add(new Relaod());
+		this.commands.add(new SetBorder());
 	}
 
 

@@ -14,6 +14,7 @@ import com.github.jp.erudo.elts.GameState;
 import com.github.jp.erudo.elts.Main;
 import com.github.jp.erudo.elts.command.commands.SubCommand;
 import com.github.jp.erudo.elts.runnable.Counter;
+import com.github.jp.erudo.elts.utils.BorderManager;
 import com.github.jp.erudo.elts.utils.ItemMaker;
 import com.github.jp.erudo.elts.utils.MessageManager;
 
@@ -42,6 +43,10 @@ public class Start extends SubCommand {
 			p.getInventory().addItem(bow);
 			p.getInventory().addItem(new ItemStack(Material.ARROW));
 		}
+
+		plugin.setBorder(new BorderManager(player.getWorld()));
+		plugin.getBorder().getBorder().setWarningDistance(0);
+		plugin.getBorder().getBorder().setDamageAmount(0);
 
 
 		MessageManager.sendTitleAll(ChatColor.BOLD + "Last Team Standing", 20, 40, 20, EnumTitleAction.TITLE);

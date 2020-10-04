@@ -27,6 +27,7 @@ public class EntityDamageListener implements Listener {
 		}
 
 		if(!((e.getDamager() instanceof Arrow) && (e.getEntity() instanceof Player))) {
+			e.setCancelled(true);
 			return;
 		}
 
@@ -58,6 +59,7 @@ public class EntityDamageListener implements Listener {
 		if(e.getCause() == DamageCause.FALL) {
 			e.setCancelled(true);
 		}
+
 	}
 
 }

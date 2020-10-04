@@ -10,12 +10,15 @@ import com.github.jp.erudo.elts.listener.ArrowListener;
 import com.github.jp.erudo.elts.listener.DeathListener;
 import com.github.jp.erudo.elts.listener.EntityDamageListener;
 import com.github.jp.erudo.elts.listener.JoinLeaveListener;
+import com.github.jp.erudo.elts.utils.BorderManager;
 
 public class Main extends JavaPlugin {
 
 	private static Main instance;
 	private static Config config;
 	private static TeamConfig teamConfig;
+
+	private BorderManager border;
 
 	public CommandManager commandManager;
 
@@ -87,4 +90,14 @@ public class Main extends JavaPlugin {
 	public static TeamConfig getTeamConfig() {
 		return teamConfig;
 	}
+
+	public BorderManager getBorder() {
+		return border;
+	}
+
+	public void setBorder(BorderManager border) {
+		this.border = border;
+	}
+
+
 }

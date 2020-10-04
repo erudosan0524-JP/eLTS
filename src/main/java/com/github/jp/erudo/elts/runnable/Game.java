@@ -1,5 +1,6 @@
 package com.github.jp.erudo.elts.runnable;
 
+import org.bukkit.WorldBorder;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.github.jp.erudo.elts.GameState;
@@ -15,7 +16,8 @@ public class Game extends BukkitRunnable {
 			return;
 		}
 
-
+		//ボーダーの処理
+		WorldBorder border = plugin.getBorder().getBorder();
 
 
 		switch(plugin.getMode()) {

@@ -32,6 +32,8 @@ public class Counter extends BukkitRunnable {
 		if (count <= 0) {
 			MessageManager.sendTitleAll(ChatColor.BOLD + "START!", 20, 20, 20, EnumTitleAction.TITLE);
 			plugin.setState(GameState.GAMING);
+
+
 			count = 0;
 			plugin.getServer().getScheduler().cancelTask(task.getTaskId());
 
