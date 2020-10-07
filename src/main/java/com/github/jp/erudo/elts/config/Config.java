@@ -1,57 +1,59 @@
 package com.github.jp.erudo.elts.config;
 
+import com.github.jp.erudo.elts.GameMode;
+import com.github.jp.erudo.elts.Main;
+import lombok.Getter;
+import org.bukkit.configuration.file.FileConfiguration;
+
+import java.util.Objects;
+
 public class Config {
 
+	private final Main plugin;
+	private FileConfiguration config = null;
 
-	private CustomConfig config;
+	public String defaultGameMode;
 
-	private String defaultGameMode;
-	private int defaultInterval;
-	private int defaultCount;
+	@Getter
+	public int defaultInterval;
+	@Getter
+	public int defaultCount;
 
-	public Config(CustomConfig config) {
-		this.config = config;
+
+	public Config(Main plugin) {
+		this.plugin = plugin;
 
 		load();
 	}
 
 	private void load() {
-		if(config != null) {
-			config.reloadConfig();
+		plugin.saveDefaultConfig();
+
+		if (Objects.nonNull(config)) {
+			plugin.reloadConfig();
 		}
 
-		defaultGameMode = config.getConfig().getString("defaultGameMode");
-		defaultInterval = config.getConfig().getInt("defaultInterval");
-		defaultCount = config.getConfig().getInt("defaultCount");
+		config = plugin.getConfig();
+
+		defaultGameMode = config.getString("defaultGameMode");
+		defaultInterval = config.getInt("defaultInterval");
+		defaultCount = config.getInt("defaultCount");
 
 	}
 
-	public String getDefaultGameMode() {
-		return defaultGameMode;
+	public GameMode getDefaultGameMode() {
+		switch (defaultGameMode.toLowerCase()) {
+			case "solo":
+				return GameMode.SOLO;
+			case "duo":
+				return GameMode.DUO;
+			case "trio":
+				return GameMode.TRIO;
+			default:
+				return null;
+		}
 	}
 
-	public void setDefaultGameMode(String defaultGameMode) {
-		this.defaultGameMode = defaultGameMode;
-	}
 
-	public int getDefaultInterval() {
-		return defaultInterval;
-	}
-
-	public void setDefaultInterval(int defaultInterval) {
-		this.defaultInterval = defaultInterval;
-	}
-
-	public int getDefaultCount() {
-		return defaultCount;
-	}
-
-	public void setDefaultCount(int defaultCount) {
-		this.defaultCount = defaultCount;
-	}
-
-	public void reload() {
-		config.reloadConfig();
-	}
 
 }

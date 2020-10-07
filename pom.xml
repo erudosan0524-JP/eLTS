@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jp.erudo.elts</groupId>
 	<artifactId>eLTS</artifactId>
-	<version>0.1.8-SNAPSHOT</version>
+	<version>0.1.9-SNAPSHOT</version>
 	<name>eLTS</name>
 	<description>弓を使ったバトルロイヤルゲームです。</description>
 	<properties>
@@ -36,6 +36,13 @@
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot</artifactId>
 			<version>1.16.3-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- LOMBOK -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

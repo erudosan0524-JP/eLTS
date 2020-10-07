@@ -2,6 +2,7 @@ package com.github.jp.erudo.elts.command.commands.subcommands;
 
 import com.github.jp.erudo.elts.Main;
 import com.github.jp.erudo.elts.command.commands.SubCommand;
+import com.github.jp.erudo.elts.utils.MathUtils;
 import com.github.jp.erudo.elts.utils.MessageManager;
 import org.bukkit.WorldBorder;
 import org.bukkit.entity.Player;
@@ -17,7 +18,7 @@ public class SetBorder extends SubCommand {
             if (args[0].equalsIgnoreCase("center")) {
                 WorldBorder border = plugin.getBorder().getBorder();
                 border.setCenter(player.getLocation());
-                player.sendMessage("ボーダーの中心を" + MessageManager.getCoordinate(player.getLocation()) + "に設定しました");
+                player.sendMessage("ボーダーの中心を" + MathUtils.getCoordinatetoString(player.getLocation()) + "に設定しました");
             }
         }
     }

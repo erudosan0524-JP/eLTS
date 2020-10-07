@@ -45,11 +45,5 @@ public class MessageManager {
 		Bukkit.getServer().getOnlinePlayers().forEach(player -> ((CraftPlayer) player).getHandle().playerConnection.sendPacket(title));
 	}
 
-	public static String getCoordinate(Location loc) {
-		String[] coordinates = {Double.toString(loc.getX()), Double.toString(loc.getY()), Double.toString(loc.getZ())};
 
-		String result = String.join(",",coordinates);
-
-		return result;
-	}
 }
