@@ -30,10 +30,10 @@ public class Start extends SubCommand {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onCommand(Player player, String[] args) {
-		List<String> descs = new ArrayList<String>();
+		List<String> descs = new ArrayList<>();
 		descs.add(ChatColor.GRAY + "" + ChatColor.ITALIC + "最後まで生き残れ...");
 
-		List<Enchantment> enchant = new ArrayList<Enchantment>();
+		List<Enchantment> enchant = new ArrayList<>();
 		enchant.add(Enchantment.ARROW_DAMAGE);
 
 
@@ -52,9 +52,9 @@ public class Start extends SubCommand {
 		MessageManager.sendTitleAll(ChatColor.BOLD + "Last Team Standing", 20, 40, 20, EnumTitleAction.TITLE);
 		MessageManager.sendTitleAll(ChatColor.GRAY + "最後まで生き残れ...", 20, 40, 20, EnumTitleAction.SUBTITLE);
 
-		MessageManager.log(String.valueOf(Main.getMyConfig().getDefaultCount()));
+		MessageManager.log(String.valueOf(plugin.getConfig().getDefaultCount()));
 		plugin.setState(GameState.COUNTING);
-		Counter counter = new Counter(Main.getMyConfig().getDefaultCount());
+		Counter counter = new Counter(plugin.getConfig().getDefaultCount());
 		task = counter.runTaskTimer(plugin, 0, 20L);
 		counter.setTask(task);
 	}

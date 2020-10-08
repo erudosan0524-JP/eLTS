@@ -33,6 +33,9 @@ public class Main extends JavaPlugin {
 	@Setter
 	private GameMode mode;
 
+	@Getter
+	private Config config;
+
 	@Override
 	public void onDisable() {
 		// TODO 自動生成されたメソッド・スタブ
@@ -48,7 +51,7 @@ public class Main extends JavaPlugin {
 		commandManager.setup();
 
 		//Config
-		new Config(this);
+		config = new Config(this);
 
 		//Listener
 		new JoinLeaveListener(this);

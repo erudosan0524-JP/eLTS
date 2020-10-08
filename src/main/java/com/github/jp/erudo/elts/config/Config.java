@@ -4,12 +4,13 @@ import com.github.jp.erudo.elts.GameMode;
 import com.github.jp.erudo.elts.Main;
 import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.Plugin;
 
 import java.util.Objects;
 
 public class Config {
 
-	private final Main plugin;
+	private final Plugin plugin;
 	private FileConfiguration config = null;
 
 	public String defaultGameMode;
@@ -20,7 +21,7 @@ public class Config {
 	public int defaultCount;
 
 
-	public Config(Main plugin) {
+	public Config(Plugin plugin) {
 		this.plugin = plugin;
 
 		load();
@@ -39,6 +40,11 @@ public class Config {
 		defaultInterval = config.getInt("defaultInterval");
 		defaultCount = config.getInt("defaultCount");
 
+	}
+
+	public void reload() {
+		plugin.reloadConfig();
+		plugin.saveConfig();
 	}
 
 	public GameMode getDefaultGameMode() {

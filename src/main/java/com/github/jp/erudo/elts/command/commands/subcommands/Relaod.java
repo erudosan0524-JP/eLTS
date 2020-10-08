@@ -8,10 +8,12 @@ import com.github.jp.erudo.elts.utils.MessageManager;
 
 public class Relaod extends SubCommand {
 
+	private final Main plugin = Main.getInstance();
+
+
 	@Override
 	public void onCommand(Player player, String[] args) {
-		Main.getMyConfig().reload();
-		Main.getTeamConfig().reload();
+		plugin.getConfig().reload();
 
 		MessageManager.send(player, "リロード完了");
 	}

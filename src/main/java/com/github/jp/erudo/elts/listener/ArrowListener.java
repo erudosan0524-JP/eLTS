@@ -19,7 +19,7 @@ import com.github.jp.erudo.elts.runnable.Interval;
 
 public class ArrowListener implements Listener {
 
-	private final Main instance = Main.getInstance();
+	private final Main plugin = Main.getInstance();
 	private BukkitTask task;
 
 	public ArrowListener(Main plugin) {
@@ -33,20 +33,20 @@ public class ArrowListener implements Listener {
 		}
 
 		Player player = (Player) e.getEntity();
-		int interval = Main.getMyConfig().getDefaultInterval();
+		int interval = plugin.getConfig().getDefaultInterval();
 
 		//プレイヤーのEXPを0に
 		player.setExp(0);
 
 		//Interval Runnableの起動
 		Interval intervalRun = new Interval(interval,player);
-		task = intervalRun.runTaskTimer(instance, 0, 20L);
+		task = intervalRun.runTaskTimer(plugin, 0, 20L);
 		intervalRun.setTask(task);
 	}
 
 	@EventHandler
 	public void onProjectileHit(ProjectileHitEvent e) {
-		if(instance.getState() != GameState.GAMING) {
+		if(plugin.getState() != GameState.GAMING) {
 			return;
 		}
 

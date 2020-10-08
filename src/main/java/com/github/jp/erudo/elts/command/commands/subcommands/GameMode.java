@@ -13,7 +13,7 @@ public class GameMode extends SubCommand {
 
 	@Override
 	public void onCommand(Player player, String[] args) {
-		switch(args[0]) {
+		switch (args[0]) {
 			case "solo":
 				plugin.setMode(com.github.jp.erudo.elts.GameMode.SOLO);
 				MessageManager.send(player, "ゲームモードを『ソロ』に設定しました");

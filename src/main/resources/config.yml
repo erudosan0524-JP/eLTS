@@ -1,3 +1,12 @@
-defaultGameMode: "solo"
+# default-values Settings
+defaultGameMode: solo
 defaultInterval: 100
 defaultCount: 20
+
+#SQL Settings
+host: localhost
+port: 3306
+username: root
+password: password
+tables: tables
+
