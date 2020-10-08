@@ -1,4 +1,4 @@
-package com.github.jp.erudo.elts.config;
+package com.github.jp.erudo.elts.utils;
 
 import com.github.jp.erudo.elts.GameMode;
 import com.github.jp.erudo.elts.Main;

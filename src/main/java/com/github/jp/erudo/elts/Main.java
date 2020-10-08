@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.github.jp.erudo.elts.command.CommandManager;
-import com.github.jp.erudo.elts.config.Config;
+import com.github.jp.erudo.elts.utils.Config;
 import com.github.jp.erudo.elts.listener.ArrowListener;
 import com.github.jp.erudo.elts.listener.DeathListener;
 import com.github.jp.erudo.elts.listener.EntityDamageListener;
