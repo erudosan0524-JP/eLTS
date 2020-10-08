@@ -13,7 +13,8 @@ public class MysqlSetterGetter {
     public boolean teamExists(String team_name) {
         try {
             DBManager db = plugin.getDbManager();
-            PreparedStatement statement = db.getConnection().prepareStatement("SELECT * FROM " + plugin.getConfig().getTeams_table() + " WHERE team_name=?");
+            PreparedStatement statement = db.getConnection()
+                    .prepareStatement("SELECT * FROM " + plugin.getConfig().getTeams_table() + " WHERE team_name=?");
             statement.setString(1,team_name);
 
             ResultSet results = statement.executeQuery();
@@ -31,7 +32,8 @@ public class MysqlSetterGetter {
     public void createTeam(String team_name) {
         try {
             DBManager db = plugin.getDbManager();
-            PreparedStatement statement = db.getConnection().prepareStatement("SELECT * FROM " + plugin.getConfig().getTeams_table() + " WHERE team_name=?");
+            PreparedStatement statement = db.getConnection()
+                    .prepareStatement("SELECT * FROM " + plugin.getConfig().getTeams_table() + " WHERE team_name=?");
             statement.setString(1, team_name);
             ResultSet results = statement.executeQuery();
             results.next();
@@ -77,6 +79,25 @@ public class MysqlSetterGetter {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+    }
+
+    public int getTeamID(String team_name) {
+        try {
+            DBManager db = plugin.getDbManager();
+            PreparedStatement statement = db.getConnection()
+                    .prepareStatement("SELECT * FROM " + plugin.getConfig().getTeams_table() + " WHERE team_name=?");
+            statement.setString(1,team_name);
+
+            ResultSet results = statement.executeQuery();
+            results.next();
+
+            return results.getInt("id");
+
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+
+        return 0;
     }
 
 }
