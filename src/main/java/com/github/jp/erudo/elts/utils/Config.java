@@ -13,13 +13,16 @@ public class Config {
 	private final Plugin plugin;
 	private FileConfiguration config = null;
 
-	public String defaultGameMode;
+	private String defaultGameMode;
+	@Getter
+	private int defaultInterval;
+	@Getter
+	private int defaultCount;
 
 	@Getter
-	public int defaultInterval;
+	private String host,database,username,password, teams_table, members_table;
 	@Getter
-	public int defaultCount;
-
+	private int port;
 
 	public Config(Plugin plugin) {
 		this.plugin = plugin;
@@ -39,6 +42,13 @@ public class Config {
 		defaultGameMode = config.getString("defaultGameMode");
 		defaultInterval = config.getInt("defaultInterval");
 		defaultCount = config.getInt("defaultCount");
+		host = config.getString("host");
+		database = config.getString("database");
+		username = config.getString("username");
+		password = config.getString("password");
+		port = config.getInt("port");
+		teams_table = config.getString("teams_table");
+		members_table = config.getString("members_table");
 
 	}
 

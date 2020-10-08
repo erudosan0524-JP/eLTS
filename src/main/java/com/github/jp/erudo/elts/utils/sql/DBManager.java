@@ -1,5 +1,6 @@
-package com.github.jp.erudo.elts.utils;
+package com.github.jp.erudo.elts.utils.sql;
 
+import com.github.jp.erudo.elts.utils.MessageManager;
 import sun.plugin2.message.Message;
 
 import javax.servlet.http.HttpServlet;

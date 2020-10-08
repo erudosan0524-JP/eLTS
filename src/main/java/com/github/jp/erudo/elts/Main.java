@@ -1,5 +1,6 @@
 package com.github.jp.erudo.elts;
 
+import com.github.jp.erudo.elts.utils.sql.DBManager;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -36,6 +37,9 @@ public class Main extends JavaPlugin {
 	@Getter
 	private Config config;
 
+	@Getter
+	private DBManager dbManager;
+
 	@Override
 	public void onDisable() {
 		// TODO 自動生成されたメソッド・スタブ
@@ -58,6 +62,9 @@ public class Main extends JavaPlugin {
 		new EntityDamageListener(this);
 		new ArrowListener(this);
 		new DeathListener(this);
+
+		//Database
+		dbManager = new DBManager(config.getHost(),config.getDatabase(),config.getUsername(), config.getPassword(), config.getPort());
 
 	}
 

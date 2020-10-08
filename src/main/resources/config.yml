@@ -8,5 +8,6 @@ host: localhost
 port: 3306
 username: root
 password: password
-tables: tables
+teams_table: teams
+members_table: team_members
 
