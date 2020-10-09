@@ -13,9 +13,9 @@ import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.github.jp.erudo.elts.GameState;
+import com.github.jp.erudo.elts.utils.GameState;
 import com.github.jp.erudo.elts.Main;
-import com.github.jp.erudo.elts.runnable.Interval;
+import com.github.jp.erudo.elts.runnable.BowInterval;
 
 public class ArrowListener implements Listener {
 
@@ -39,7 +39,7 @@ public class ArrowListener implements Listener {
 		player.setExp(0);
 
 		//Interval Runnableの起動
-		Interval intervalRun = new Interval(interval,player);
+		BowInterval intervalRun = new BowInterval(interval,player);
 		task = intervalRun.runTaskTimer(plugin, 0, 20L);
 		intervalRun.setTask(task);
 	}

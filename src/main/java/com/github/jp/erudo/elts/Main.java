@@ -1,5 +1,7 @@
 package com.github.jp.erudo.elts;
 
+import com.github.jp.erudo.elts.utils.GameMode;
+import com.github.jp.erudo.elts.utils.GameState;
 import com.github.jp.erudo.elts.utils.sql.DBManager;
 import lombok.Getter;
 import lombok.Setter;
@@ -64,7 +66,9 @@ public class Main extends JavaPlugin {
 		new DeathListener(this);
 
 		//Database
-		dbManager = new DBManager(config.getHost(),config.getDatabase(),config.getUsername(), config.getPassword(), config.getPort());
+		if(config.isSQLEnabled()) {
+			dbManager = new DBManager(config.getHost(),config.getDatabase(),config.getUsername(), config.getPassword(), config.getPort());
+		}
 
 	}
 

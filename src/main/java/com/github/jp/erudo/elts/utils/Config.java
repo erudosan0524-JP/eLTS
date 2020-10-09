@@ -1,7 +1,5 @@
 package com.github.jp.erudo.elts.utils;
 
-import com.github.jp.erudo.elts.GameMode;
-import com.github.jp.erudo.elts.Main;
 import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -19,6 +17,8 @@ public class Config {
 	@Getter
 	private int defaultCount;
 
+	@Getter
+	private boolean isSQLEnabled;
 	@Getter
 	private String host,database,username,password, teams_table, members_table;
 	@Getter
@@ -49,6 +49,7 @@ public class Config {
 		port = config.getInt("port");
 		teams_table = config.getString("teams_table");
 		members_table = config.getString("members_table");
+		isSQLEnabled = config.getBoolean("enabled-sql");
 
 	}
 

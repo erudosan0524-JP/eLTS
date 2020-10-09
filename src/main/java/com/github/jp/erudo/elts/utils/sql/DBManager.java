@@ -1,11 +1,7 @@
 package com.github.jp.erudo.elts.utils.sql;
 
 import com.github.jp.erudo.elts.utils.MessageManager;
-import sun.plugin2.message.Message;
-
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -38,7 +34,7 @@ public class DBManager extends HttpServlet {
 
                 Class.forName("com.mysql.jdbc.Driver");
                 setConnection(DriverManager.getConnection("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database
-                , this.username, this.password));
+                        , this.username, this.password));
 
                 MessageManager.log("SQLに接続しました。");
             }
