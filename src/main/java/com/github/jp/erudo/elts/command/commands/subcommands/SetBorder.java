@@ -20,6 +20,10 @@ public class SetBorder extends SubCommand {
                 border.setCenter(player.getLocation());
                 player.sendMessage("ボーダーの中心を" + MathUtils.getCoordinatetoString(player.getLocation()) + "に設定しました");
             }
+        } else {
+            WorldBorder border = plugin.getBorder().getBorder();
+            border.setSize(plugin.getConfig().getBorderSize());
+            border.setDamageAmount(plugin.getConfig().getBorderDamage());
         }
     }
 

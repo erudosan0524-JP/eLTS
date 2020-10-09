@@ -4,6 +4,8 @@ import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Config {
@@ -18,11 +20,21 @@ public class Config {
 	private int defaultCount;
 
 	@Getter
+	private int borderSize, borderDamage;
+
+	@Getter
 	private boolean isSQLEnabled;
 	@Getter
 	private String host,database,username,password, teams_table, members_table;
 	@Getter
 	private int port;
+
+	@Getter
+	private List<Integer> phaseIntervals = new ArrayList<>();
+	@Getter
+	private int shrinkTime;
+
+	public List<Integer> borderTime = new ArrayList<>();
 
 	public Config(Plugin plugin) {
 		this.plugin = plugin;
@@ -42,6 +54,8 @@ public class Config {
 		defaultGameMode = config.getString("defaultGameMode");
 		defaultInterval = config.getInt("defaultInterval");
 		defaultCount = config.getInt("defaultCount");
+		borderSize = config.getInt("border-size");
+		borderDamage = config.getInt("border-damage");
 		host = config.getString("host");
 		database = config.getString("database");
 		username = config.getString("username");
@@ -50,6 +64,14 @@ public class Config {
 		teams_table = config.getString("teams_table");
 		members_table = config.getString("members_table");
 		isSQLEnabled = config.getBoolean("enabled-sql");
+		phaseIntervals = config.getIntegerList("phase-intervals");
+		shrinkTime = config.getInt("shrink-time");
+
+
+		for(int i=0; i < phaseIntervals.size(); i++) {
+			borderTime.add(phaseIntervals.get(i-1) + phaseIntervals.get(i));
+		}
+
 
 	}
 

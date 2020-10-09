@@ -11,8 +11,8 @@ public class BorderManager {
 		this.border = world.getWorldBorder();
 	}
 
-	public void shrinkBorder(int amount) {
-		border.setSize(border.getSize() - amount);
+	public void shrinkBorder(int amount, long time) {
+		border.setSize(border.getSize() - amount,time);
 	}
 
 	public WorldBorder getBorder() {

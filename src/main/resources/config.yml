@@ -3,6 +3,17 @@ defaultGameMode: solo
 defaultInterval: 100
 defaultCount: 20
 
+# Border Settings
+border-size: 100
+border-damage: 0
+phase-intervals:
+  - 240 #phase1
+  - 180 #phase2
+  - 90 #phase3
+  - 180 #phase4
+  - 20 #phase5
+shrink-time: 90
+
 #SQL Settings
 enabled-sql: false
 host: localhost

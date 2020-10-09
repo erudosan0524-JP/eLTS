@@ -1,16 +1,13 @@
 package com.github.jp.erudo.elts.runnable;
 
+import com.github.jp.erudo.elts.Main;
+import com.github.jp.erudo.elts.utils.GameState;
+import com.github.jp.erudo.elts.utils.MessageManager;
+import net.md_5.bungee.api.ChatColor;
+import net.minecraft.server.v1_16_R2.PacketPlayOutTitle.EnumTitleAction;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
-
-import com.github.jp.erudo.elts.utils.GameState;
-import com.github.jp.erudo.elts.Main;
-import com.github.jp.erudo.elts.utils.MessageManager;
-
-import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_16_R2.PacketPlayOutTitle.EnumTitleAction;
 
 public class Counter extends BukkitRunnable {
 
