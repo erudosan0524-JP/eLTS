@@ -9,7 +9,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.util.Vector;
 
-import com.github.jp.erudo.elts.GameState;
+import com.github.jp.erudo.elts.utils.GameState;
 import com.github.jp.erudo.elts.Main;
 
 public class EntityDamageListener implements Listener {

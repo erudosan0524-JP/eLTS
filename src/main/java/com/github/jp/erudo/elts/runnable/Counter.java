@@ -5,7 +5,7 @@ import org.bukkit.Sound;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.github.jp.erudo.elts.GameState;
+import com.github.jp.erudo.elts.utils.GameState;
 import com.github.jp.erudo.elts.Main;
 import com.github.jp.erudo.elts.utils.MessageManager;
 
@@ -16,7 +16,6 @@ public class Counter extends BukkitRunnable {
 
 	private Main plugin = Main.getInstance();
 
-	private BukkitTask task;
 	private int count;
 
 	public Counter(int count) {
@@ -33,9 +32,8 @@ public class Counter extends BukkitRunnable {
 			MessageManager.sendTitleAll(ChatColor.BOLD + "START!", 20, 20, 20, EnumTitleAction.TITLE);
 			plugin.setState(GameState.GAMING);
 
-
 			count = 0;
-			plugin.getServer().getScheduler().cancelTask(task.getTaskId());
+			this.cancel();
 
 		} else if (count > 0 && count <= 10) {
 			Bukkit.getServer().getOnlinePlayers()
@@ -47,9 +45,4 @@ public class Counter extends BukkitRunnable {
 		count--;
 
 	}
-
-	public void setTask(BukkitTask task) {
-		this.task = task;
-	}
-
 }

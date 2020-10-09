@@ -15,22 +15,22 @@ public class GameMode extends SubCommand {
 	public void onCommand(Player player, String[] args) {
 		switch (args[0]) {
 			case "solo":
-				plugin.setMode(com.github.jp.erudo.elts.GameMode.SOLO);
+				plugin.setMode(com.github.jp.erudo.elts.utils.GameMode.SOLO);
 				MessageManager.send(player, "ゲームモードを『ソロ』に設定しました");
 				break;
 
 			case "duo":
-				plugin.setMode(com.github.jp.erudo.elts.GameMode.DUO);
+				plugin.setMode(com.github.jp.erudo.elts.utils.GameMode.DUO);
 				MessageManager.send(player, "ゲームモードを『デュオ』に設定しました");
 				break;
 
 			case "trio":
-				plugin.setMode(com.github.jp.erudo.elts.GameMode.TRIO);
+				plugin.setMode(com.github.jp.erudo.elts.utils.GameMode.TRIO);
 				MessageManager.send(player, "ゲームモードを『トリオ』に設定しました");
 				break;
 
 			default:
-				plugin.setMode(com.github.jp.erudo.elts.GameMode.SOLO);
+				plugin.setMode(com.github.jp.erudo.elts.utils.GameMode.SOLO);
 				MessageManager.send(player, "ゲームモードを『ソロ』に設定しました");
 				break;
 		}

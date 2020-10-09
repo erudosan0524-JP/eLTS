@@ -8,11 +8,10 @@ import org.bukkit.scheduler.BukkitTask;
 
 import com.github.jp.erudo.elts.Main;
 
-public class Interval extends BukkitRunnable{
+public class BowInterval extends BukkitRunnable{
 
 	private Main plugin = Main.getInstance();
 
-	private BukkitTask task;
 	private int interval;
 	private float n;
 	private float exp;
@@ -20,7 +19,7 @@ public class Interval extends BukkitRunnable{
 
 	private final int total;
 
-	public Interval(int interval, Player player) {
+	public BowInterval(int interval, Player player) {
 		this.interval = interval;
 		this.player = player;
 		this.total = interval;
@@ -34,7 +33,7 @@ public class Interval extends BukkitRunnable{
 		if(interval <= 0) {
 			player.getInventory().addItem(new ItemStack(Material.ARROW, 1));
 			interval = 0;
-			plugin.getServer().getScheduler().cancelTask(task.getTaskId());
+			this.cancel();
 		}
 		//interval秒たつまでにexpの値を0から1に変化させたい
 		exp = n / total;
@@ -42,9 +41,4 @@ public class Interval extends BukkitRunnable{
 		interval--;
 		n++;
 	}
-
-	public void setTask(BukkitTask task) {
-		this.task = task;
-	}
-
 }

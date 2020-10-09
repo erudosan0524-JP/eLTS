@@ -1,4 +1,4 @@
-package com.github.jp.erudo.elts;
+package com.github.jp.erudo.elts.utils;
 
 public enum GameMode {
 SOLO,DUO,TRIO;

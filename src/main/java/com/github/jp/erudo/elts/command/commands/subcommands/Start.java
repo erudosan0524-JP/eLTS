@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.github.jp.erudo.elts.GameState;
+import com.github.jp.erudo.elts.utils.GameState;
 import com.github.jp.erudo.elts.Main;
 import com.github.jp.erudo.elts.command.commands.SubCommand;
 import com.github.jp.erudo.elts.runnable.Counter;
@@ -55,8 +55,8 @@ public class Start extends SubCommand {
 		MessageManager.log(String.valueOf(plugin.getConfig().getDefaultCount()));
 		plugin.setState(GameState.COUNTING);
 		Counter counter = new Counter(plugin.getConfig().getDefaultCount());
-		task = counter.runTaskTimer(plugin, 0, 20L);
-		counter.setTask(task);
+		counter.runTaskTimer(plugin, 0, 20L);
+
 	}
 
 	@Override
